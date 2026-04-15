@@ -3,6 +3,35 @@ html {
     scroll-behavior: smooth;
 }
 
+
+/* Global reset to prevent horizontal scroll */
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* This is the primary fix */
+    position: relative;
+}
+
+/* Ensure all images stay within their parent containers */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix for Bootstrap rows */
+.container {
+    overflow: hidden; /* Keeps bento cards from peeking out during hover animations */
+}
+
+/* Responsive typography to prevent long words from pushing the screen */
+@media (max-width: 768px) {
+    .display-1 {
+        font-size: 3rem !important;
+        word-wrap: break-word;
+    }
+}
+
 :root {
     --bg-dark: #050505;
     --card-bg: #111111;
@@ -420,4 +449,60 @@ margin-right: 10px;
 /* Hide items that don't match filter */
 .hide-item {
     display: none;
+}
+
+
+/* contact */
+
+.contact-section {
+    padding-top: 150px;
+    padding-bottom: 100px;
+    background: radial-gradient(circle at bottom left, rgba(138, 43, 226, 0.05), transparent);
+}
+
+.form-control, .form-select {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent);
+    color: white;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #ddd;
+}
+
+/* Custom Radio Buttons for Project Type */
+.project-type-card {
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+    height: 100%;
+}
+
+.project-type-input:checked + .project-type-card {
+    border-color: var(--accent);
+    background: rgba(138, 43, 226, 0.1);
+}
+
+.project-type-input {
+    display: none;
+}
+
+.form-select {
+    color: #808080 !important; /* Light gray instead of pure white */
 }
